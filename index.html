@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TradePro - Advanced Paper Trading Platform</title>
+
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <a href="#" class="logo">TradePro</a>
+
+        <ul class="mobile-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="markets">Markets</a></li>
+          <li><a href="trading">Trading</a></li>
+          <li><a href="portfolio">Portfolio</a></li>
+          <li><a href="education">Education</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li><a href="auth" class="btn btn-secondary">Sign In</a></li>
+          <li>
+            <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+          </li>
+        </ul>
+        <div class="flex items-center gap-4">
+          <div class="nav-actions items-center-safe">
+            <!-- Theme Toggle -->
+            <label class="theme-toggle">
+              <input type="checkbox" id="theme-toggle" />
+              <span class="theme-slider"></span>
+            </label>
+
+            <a href="auth" class="hide-mobile btn btn-secondary">Sign In</a>
+            <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+          </div>
+          <div
+            class="hamburger"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            tabindex="0"
+            role="button"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="py-16 min-h-screen flex items-center relative overflow-hidden"
+    >
+      <div class="absolute inset-0 hero-gradient"></div>
+      <div class="relative z-10 max-w-6xl mx-auto px-6 pt-12">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div class="text-center md:text-left">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+              Practice Trading with Confidence
+            </h1>
+            <p class="text-lg mb-8 opacity-80 leading-relaxed">
+              Master the markets with our advanced paper trading platform.
+              Experience real-time market data, professional-grade tools, and
+              risk-free trading simulation.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+            >
+              <a
+                href="#"
+                class="px-6 py-3 text-white gradient-bg rounded-lg font-medium hover:scale-105 transition-transform shadow-lg"
+              >
+                Start Trading
+              </a>
+              <a
+                href="#"
+                class="px-6 py-3 card-glass rounded-lg font-medium hover:scale-105 transition-transform"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="glass-card">
+              <div class="stock-card">
+                <div class="stock-symbol">BTC/USD</div>
+                <div class="stock-company">Bitcoin</div>
+                <div class="stock-price" id="btc-price">$45,234.56</div>
+                <div class="stock-change positive" id="btc-change">
+                  <span>▲</span>
+                  <span>+2.34%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Market Overview -->
+    <section
+      id="markets"
+      class="py-20 bg-opacity-50"
+      style="background-color: var(--bg-secondary)"
+    >
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          Live Market Overview
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div class="card-glass rounded-xl p-5 animate-fade-in">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="text-sm font-semibold">AAPL</div>
+                <div class="text-xs opacity-60">Apple Inc.</div>
+              </div>
+              <div class="text-right">
+                <div class="text-xl font-bold" id="aapl-price">$178.45</div>
+                <div
+                  class="text-sm positive flex items-center"
+                  id="aapl-change"
+                >
+                  <span class="mr-1">▲</span>
+                  <span>+1.23%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-glass rounded-xl p-5 animate-fade-in">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="text-sm font-semibold">TSLA</div>
+                <div class="text-xs opacity-60">Tesla Inc.</div>
+              </div>
+              <div class="text-right">
+                <div class="text-xl font-bold" id="tsla-price">$242.18</div>
+                <div
+                  class="text-sm negative flex items-center"
+                  id="tsla-change"
+                >
+                  <span class="mr-1">▼</span>
+                  <span>-0.87%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-glass rounded-xl p-5 animate-fade-in">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="text-sm font-semibold">MSFT</div>
+                <div class="text-xs opacity-60">Microsoft Corp.</div>
+              </div>
+              <div class="text-right">
+                <div class="text-xl font-bold" id="msft-price">$412.89</div>
+                <div
+                  class="text-sm positive flex items-center"
+                  id="msft-change"
+                >
+                  <span class="mr-1">▲</span>
+                  <span>+0.56%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-glass rounded-xl p-5 animate-fade-in">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="text-sm font-semibold">GOOGL</div>
+                <div class="text-xs opacity-60">Alphabet Inc.</div>
+              </div>
+              <div class="text-right">
+                <div class="text-xl font-bold" id="googl-price">$2,789.32</div>
+                <div
+                  class="text-sm positive flex items-center"
+                  id="googl-change"
+                >
+                  <span class="mr-1">▲</span>
+                  <span>+2.10%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-glass rounded-xl p-5 animate-fade-in">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="text-sm font-semibold">ETH/USD</div>
+                <div class="text-xs opacity-60">Ethereum</div>
+              </div>
+              <div class="text-right">
+                <div class="text-xl font-bold" id="eth-price">$2,456.78</div>
+                <div class="text-sm positive flex items-center" id="eth-change">
+                  <span class="mr-1">▲</span>
+                  <span>+3.45%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-glass rounded-xl p-5 animate-fade-in">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="text-sm font-semibold">NVDA</div>
+                <div class="text-xs opacity-60">NVIDIA Corp.</div>
+              </div>
+              <div class="text-right">
+                <div class="text-xl font-bold" id="nvda-price">$478.23</div>
+                <div
+                  class="text-sm negative flex items-center"
+                  id="nvda-change"
+                >
+                  <span class="mr-1">▼</span>
+                  <span>-1.45%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="chart-container rounded-xl p-6 h-96 flex items-center justify-center"
+        >
+          <canvas id="marketChart" class="w-full h-full"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="trading" class="py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          Why Choose TradePro?
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="card-glass rounded-xl p-8 text-center animate-fade-in">
+            <div
+              class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 text-2xl"
+            >
+              📊
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Real-Time Data</h3>
+            <p class="opacity-80 leading-relaxed">
+              Access live market data and real-time price updates for accurate
+              trading simulation.
+            </p>
+          </div>
+
+          <div class="card-glass rounded-xl p-8 text-center animate-fade-in">
+            <div
+              class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 text-2xl"
+            >
+              💼
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Professional Tools</h3>
+            <p class="opacity-80 leading-relaxed">
+              Advanced charting, technical analysis, and portfolio management
+              tools used by professionals.
+            </p>
+          </div>
+
+          <div class="card-glass rounded-xl p-8 text-center animate-fade-in">
+            <div
+              class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 text-2xl"
+            >
+              🔒
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Risk-Free Trading</h3>
+            <p class="opacity-80 leading-relaxed">
+              Practice with virtual money and build confidence without risking
+              real capital.
+            </p>
+          </div>
+
+          <div class="card-glass rounded-xl p-8 text-center animate-fade-in">
+            <div
+              class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 text-2xl"
+            >
+              📈
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Multi-Asset Support</h3>
+            <p class="opacity-80 leading-relaxed">
+              Trade stocks, crypto, forex, and commodities all in one platform.
+            </p>
+          </div>
+
+          <div class="card-glass rounded-xl p-8 text-center animate-fade-in">
+            <div
+              class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 text-2xl"
+            >
+              🎯
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Performance Analytics</h3>
+            <p class="opacity-80 leading-relaxed">
+              Track your trading performance with detailed analytics and
+              reporting.
+            </p>
+          </div>
+
+          <div class="card-glass rounded-xl p-8 text-center animate-fade-in">
+            <div
+              class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 text-2xl"
+            >
+              🎓
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Educational Resources</h3>
+            <p class="opacity-80 leading-relaxed">
+              Learn trading strategies with our comprehensive educational
+              materials.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>TradePro</h3>
+          <ul>
+            <li><a href="about">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Trading</h3>
+          <ul>
+            <li><a href="#">Stocks</a></li>
+            <li><a href="#">Crypto</a></li>
+            <li><a href="#">Forex</a></li>
+            <li><a href="#">Commodities</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Market Analysis</a></li>
+            <li><a href="#">Trading Guides</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">System Status</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 TradePro. All rights reserved. | Terms of Service |
+          Privacy Policy
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="./src/main.ts"></script>
+    <script>
+      // Mock price updates
+      const stocks = [
+        {
+          id: "hero-btc-price",
+          changeId: "hero-btc-change",
+          symbol: "BTC",
+          basePrice: 45234.56,
+        },
+        {
+          id: "aapl-price",
+          changeId: "aapl-change",
+          symbol: "AAPL",
+          basePrice: 178.45,
+        },
+        {
+          id: "tsla-price",
+          changeId: "tsla-change",
+          symbol: "TSLA",
+          basePrice: 242.18,
+        },
+        {
+          id: "msft-price",
+          changeId: "msft-change",
+          symbol: "MSFT",
+          basePrice: 412.89,
+        },
+        {
+          id: "googl-price",
+          changeId: "googl-change",
+          symbol: "GOOGL",
+          basePrice: 2789.32,
+        },
+        {
+          id: "eth-price",
+          changeId: "eth-change",
+          symbol: "ETH",
+          basePrice: 2456.78,
+        },
+        {
+          id: "nvda-price",
+          changeId: "nvda-change",
+          symbol: "NVDA",
+          basePrice: 478.23,
+        },
+      ];
+
+      // Generate market data for chart
+      function generateMarketData() {
+        const data = [];
+        const labels = [];
+        const now = new Date();
+
+        for (let i = 29; i >= 0; i--) {
+          const time = new Date(now - i * 60000);
+          labels.push(
+            time.toLocaleTimeString("en-US", {
+              hour: "2-digit",
+              minute: "2-digit",
+            })
+          );
+
+          const basePrice = 45000;
+          const volatility = 0.02;
+          const trend = Math.sin(i * 0.1) * 0.005;
+          const random = (Math.random() - 0.5) * volatility;
+          const price = basePrice * (1 + trend + random);
+
+          data.push(price);
+        }
+
+        return { labels, data };
+      }
+
+      // Initialize chart
+      const ctx = document.getElementById("marketChart").getContext("2d");
+      const marketData = generateMarketData();
+
+      function getChartColors() {
+        const isDark =
+          body.hasAttribute("data-theme") &&
+          body.getAttribute("data-theme") === "dark";
+        return {
+          line: "#0ea5e9",
+          fill: isDark ? "rgba(14, 165, 233, 0.1)" : "rgba(14, 165, 233, 0.05)",
+          grid: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)",
+          text: isDark ? "#868b93" : "#64748b",
+          tooltip: isDark
+            ? "rgba(19, 23, 34, 0.95)"
+            : "rgba(255, 255, 255, 0.95)",
+        };
+      }
+
+      let chart;
+
+      function initChart() {
+        const colors = getChartColors();
+
+        if (chart) {
+          chart.destroy();
+        }
+
+        chart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: marketData.labels,
+            datasets: [
+              {
+                label: "BTC/USD",
+                data: marketData.data,
+                borderColor: colors.line,
+                backgroundColor: colors.fill,
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4,
+                pointRadius: 0,
+                pointHoverRadius: 6,
+                pointHoverBackgroundColor: colors.line,
+                pointHoverBorderColor: "#ffffff",
+                pointHoverBorderWidth: 2,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: colors.tooltip,
+                titleColor: colors.text,
+                bodyColor: colors.text,
+                borderColor: "rgba(255, 255, 255, 0.1)",
+                borderWidth: 1,
+                cornerRadius: 8,
+                displayColors: false,
+                callbacks: {
+                  label: function (context) {
+                    return `$${context.parsed.y.toFixed(2)}`;
+                  },
+                },
+              },
+            },
+            scales: {
+              x: {
+                grid: {
+                  color: colors.grid,
+                  drawBorder: false,
+                },
+                ticks: {
+                  color: colors.text,
+                  maxTicksLimit: 6,
+                },
+              },
+              y: {
+                grid: {
+                  color: colors.grid,
+                  drawBorder: false,
+                },
+                ticks: {
+                  color: colors.text,
+                  callback: function (value) {
+                    return `${value.toFixed(0)}`;
+                  },
+                },
+              },
+            },
+            interaction: {
+              intersect: false,
+              mode: "index",
+            },
+            elements: {
+              line: {
+                borderJoinStyle: "round",
+              },
+            },
+          },
+        });
+      }
+
+      // Initialize chart
+      initChart();
+
+      // Re-initialize chart when theme changes
+      const originalSetTheme = setTheme;
+      setTheme = function (theme) {
+        originalSetTheme(theme);
+        setTimeout(() => {
+          initChart();
+        }, 100);
+      };
+
+      // Update chart with new data
+      function updateChart() {
+        if (!chart) return;
+
+        const now = new Date();
+        const newLabel = now.toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+
+        const lastPrice =
+          chart.data.datasets[0].data[chart.data.datasets[0].data.length - 1];
+        const volatility = 0.005;
+        const random = (Math.random() - 0.5) * volatility;
+        const newPrice = lastPrice * (1 + random);
+
+        chart.data.labels.push(newLabel);
+        chart.data.datasets[0].data.push(newPrice);
+
+        if (chart.data.labels.length > 30) {
+          chart.data.labels.shift();
+          chart.data.datasets[0].data.shift();
+        }
+
+        chart.update("none");
+      }
+
+      // Update stock prices
+      function updatePrices() {
+        stocks.forEach((stock) => {
+          const priceElement = document.getElementById(stock.id);
+          const changeElement = document.getElementById(stock.changeId);
+
+          if (priceElement && changeElement) {
+            const changePercent = (Math.random() - 0.5) * 4;
+            const newPrice = stock.basePrice * (1 + changePercent / 100);
+
+            const formattedPrice =
+              stock.symbol === "BTC" || stock.symbol === "ETH"
+                ? `${newPrice.toFixed(2)}`
+                : `${newPrice.toFixed(2)}`;
+
+            priceElement.textContent = formattedPrice;
+
+            const isPositive = changePercent > 0;
+            changeElement.className = `text-sm flex items-center ${
+              isPositive ? "positive" : "negative"
+            }`;
+            changeElement.innerHTML = `
+                        <span class="mr-1">${isPositive ? "▲" : "▼"}</span>
+                        <span>${isPositive ? "+" : ""}${changePercent.toFixed(
+              2
+            )}%</span>
+                    `;
+          }
+        });
+      }
+
+      // Smooth scrolling for navigation
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const navHeight = 64; // Height of fixed navbar
+            const targetPosition = target.offsetTop - navHeight;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements for animation
+      document.querySelectorAll(".animate-fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Update intervals
+      setInterval(updatePrices, 3000);
+      setInterval(updateChart, 5000);
+
+      // Mobile menu toggle (if needed)
+      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+      }
+
+      // Navbar background on scroll
+      let lastScroll = 0;
+      const navbar = document.querySelector("nav");
+
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 100) {
+          navbar.classList.add("shadow-lg");
+        } else {
+          navbar.classList.remove("shadow-lg");
+        }
+
+        lastScroll = currentScroll;
+      });
+
+      // Initialize on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set initial theme
+        const savedTheme = localStorage.getItem("theme") || "light";
+        setTheme(savedTheme);
+
+        // Initial price update
+        updatePrices();
+
+        // Add loading animation
+        setTimeout(() => {
+          document.querySelectorAll(".animate-fade-in").forEach((el) => {
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+              el.classList.add("visible");
+            }
+          });
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

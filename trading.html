@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trading | TradePro</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <a href="./" class="logo">TradePro</a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="markets">Markets</a></li>
+          <li><a href="trading" class="active">Trading</a></li>
+          <li><a href="portfolio">Portfolio</a></li>
+          <li><a href="education">Education</a></li>
+          <li><a href="about">About</a></li>
+        </ul>
+        <div class="nav-actions items-center-safe">
+          <label class="theme-toggle">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="theme-slider"></span>
+          </label>
+          <a href="auth" class="btn btn-secondary">Sign In</a>
+          <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Trading Interface Main -->
+    <main
+      class="pt-20 pb-20 min-h-screen bg-opacity-100"
+      style="background-color: var(--bg-secondary)"
+    >
+      <div class="max-w-7xl mx-auto px-4">
+        <!-- Ticker and Asset Selector -->
+        <div
+          class="flex flex-col md:flex-row md:items-center gap-4 mb-6 animate-fade-in"
+        >
+          <div class="flex items-center gap-4 card-glass p-4">
+            <span class="text-lg font-bold">BTC/USDT</span>
+            <span
+              class="text-2xl font-bold text-[color:var(--accent-primary)]"
+              id="ticker-price"
+              >$118,326.80</span
+            >
+            <span class="text-sm negative ml-2">-1,475.84 (-1.23%)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <label for="asset-select" class="text-sm opacity-70">Asset:</label>
+            <select id="asset-select" class="tab-btn">
+              <option>BTC/USDT</option>
+              <option>ETH/USDT</option>
+              <option>BNB/USDT</option>
+              <option>SOL/USDT</option>
+            </select>
+          </div>
+          <div class="flex items-center gap-2 ml-auto">
+            <span class="text-xs opacity-70">24h Vol:</span>
+            <span class="font-mono text-sm">1,961,464,190.03</span>
+          </div>
+        </div>
+
+        <!-- Main Trading Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Chart and Timeframes -->
+          <div class="lg:col-span-2 card-glass p-6 animate-fade-in">
+            <div class="flex items-center gap-2 mb-4">
+              <button class="tab-btn active" data-timeframe="1h">1H</button>
+              <button class="tab-btn" data-timeframe="1d">1D</button>
+              <button class="tab-btn" data-timeframe="1w">1W</button>
+            </div>
+            <div class="w-full h-80">
+              <canvas id="tradeChart" class="h-full"></canvas>
+            </div>
+          </div>
+          <!-- Order Panel -->
+          <div class="card-glass p-6 flex flex-col gap-6 animate-fade-in">
+            <div class="flex justify-between items-center mb-2">
+              <span class="font-semibold text-lg">Order Panel</span>
+            </div>
+            <div class="flex gap-2 mb-4">
+              <button class="btn btn-primary flex-1">Market Buy</button>
+              <button class="btn btn-secondary flex-1">Market Sell</button>
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm mb-1">Amount (BTC)</label>
+              <input
+                type="number"
+                class="w-full rounded-lg px-4 py-2 bg-[var(--card-bg)] border border-[var(--border-light)] text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] transition"
+                placeholder="Enter amount"
+                min="0"
+                step="0.0001"
+                style="backdrop-filter: blur(12px);"
+              />
+            </div>
+            <div class="flex justify-between text-sm opacity-70">
+              <span>Available: <span class="font-mono">2.048 BTC</span></span>
+              <span>Fee: <span class="font-mono">0.075%</span></span>
+            </div>
+
+            <!-- Order Book -->
+            <div class="order-book">
+              <table class="w-full">
+                <thead>
+                  <tr>
+                    <th>Price (USDT)</th>
+                    <th>Amount (BTC)</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody id="order-book-body">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>TradePro</h3>
+          <ul>
+            <li><a href="about">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Trading</h3>
+          <ul>
+            <li><a href="#">Stocks</a></li>
+            <li><a href="#">Crypto</a></li>
+            <li><a href="#">Forex</a></li>
+            <li><a href="#">Commodities</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Market Analysis</a></li>
+            <li><a href="#">Trading Guides</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">System Status</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 TradePro. All rights reserved. | Terms of Service |
+          Privacy Policy
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="./src/main.ts"></script>
+    <script>
+      // Chart.js setup (unchanged)
+      const ctx = document.getElementById("tradeChart").getContext("2d");
+      let chart;
+      function renderChart(timeframe = "1h") {
+        // Get the current theme text color from CSS variable
+        const textColor = getComputedStyle(document.body).getPropertyValue('--text-secondary').trim() || '#868b93';
+        const dataSets = {
+          "1h": [118000, 118200, 118100, 118300, 118250, 118072],
+          "1d": [117000, 117500, 118000, 118200, 118072, 118100],
+          "1w": [115000, 116000, 117000, 118000, 118072, 117500],
+        };
+        if (chart) chart.destroy();
+        chart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: ["T-5", "T-4", "T-3", "T-2", "T-1", "Now"],
+            datasets: [
+              {
+                label: "BTC/USDT",
+                data: dataSets[timeframe],
+                borderColor: "#0ea5e9",
+                backgroundColor: "rgba(14,165,233,0.1)",
+                tension: 0.4,
+                pointRadius: 0,
+                fill: true,
+              },
+            ],
+          },
+          options: {
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { display: false, ticks: { color: textColor } },
+              y: {
+                display: true,
+                grid: { color: "rgba(255,255,255,0.08)" },
+                ticks: { color: textColor },
+              },
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+          },
+        });
+      }
+      
+      renderChart();
+      document.querySelectorAll("[data-timeframe]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll("[data-timeframe]")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderChart(btn.dataset.timeframe);
+        });
+      });
+
+      // Re-render chart on theme change
+      document.addEventListener('theme-changed', () => {
+        const activeBtn = document.querySelector('[data-timeframe].active');
+        const tf = activeBtn ? activeBtn.getAttribute('data-timeframe') : '1h';
+        renderChart(tf);
+      });
+
+      // Mock Order Book Data
+      const orderBookData = [
+        { price: 118072.64, amount: 0.01, total: 1180.73, type: "buy" },
+        { price: 118071.29, amount: 0.005, total: 590.36, type: "buy" },
+        { price: 118069.99, amount: 0.015, total: 1771.15, type: "sell" },
+        { price: 118068.74, amount: 0.01, total: 1180.69, type: "sell" },
+      ];
+
+      // Mock Market Trades Data
+      const marketTradesData = [
+        { pair: "1000CAT/USDT", price: 0.00866, change: -5.97 },
+        { pair: "1000CHEMS/USDT", price: 0.001433, change: -5.97 },
+        { pair: "1000SATS/USDT", price: 0.00004851, change: -3.5 },
+      ];
+
+      // Populate Order Book
+      const orderBookBody = document.getElementById("order-book-body");
+      orderBookData.forEach((item) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td class="${
+            item.type === "buy" ? "buy" : "sell"
+          }">${item.price.toFixed(2)}</td>
+          <td>${item.amount.toFixed(4)}</td>
+          <td>${item.total.toFixed(2)}</td>
+        `;
+        orderBookBody.appendChild(row);
+      });
+
+      // Populate Market Trades
+      const marketTradesBody = document.getElementById("market-trades-body");
+      marketTradesData.forEach((item) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${item.pair}</td>
+          <td class="price">${item.price.toFixed(6)}</td>
+          <td class="${item.change < 0 ? "negative" : "positive"}">${
+          item.change
+        }%</td>
+        `;
+        marketTradesBody.appendChild(row);
+      });
+
+      // Animate ticker price (unchanged)
+      setInterval(() => {
+        const price = 118000 + Math.random() * 500;
+        document.getElementById(
+          "ticker-price"
+        ).textContent = `$${price.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}`;
+      }, 2000);
+    </script>
+  </body>
+</html>

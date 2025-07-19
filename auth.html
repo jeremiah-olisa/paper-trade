@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login / Sign Up - TradePro Paper Trading Platform</title>
+
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <a href="./" class="logo">TradePro</a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="markets">Markets</a></li>
+          <li><a href="trading">Trading</a></li>
+          <li><a href="portfolio">Portfolio</a></li>
+          <li><a href="education">Education</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions items-center-safe">
+          <!-- Theme Toggle -->
+          <label class="theme-toggle">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="theme-slider"></span>
+          </label>
+
+          <a href="auth" class="btn btn-secondary">Sign In</a>
+          <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Auth Section -->
+    <section
+      class="pt-24 pb-16 min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
+      <div class="absolute inset-0 hero-gradient"></div>
+      <div class="relative z-10 w-full max-w-md mx-auto px-6">
+        <!-- Auth Container -->
+        <div class="card-glass rounded-2xl p-8 animate-fade-in">
+          <!-- Logo and Title -->
+          <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold gradient-text mb-2">Welcome Back</h1>
+            <p class="opacity-80">Access your trading dashboard</p>
+          </div>
+
+          <!-- Tab Navigation -->
+          <div class="flex mb-8 !bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+            <button
+              id="login-tab"
+              class="flex-1 py-2 px-4 rounded-md font-medium transition-all duration-300 tab-active"
+              onclick="switchTab('login')"
+            >
+              Sign In
+            </button>
+            <button
+              id="signup-tab"
+              class="flex-1 py-2 px-4 rounded-md font-medium transition-all duration-300"
+              onclick="switchTab('signup')"
+            >
+              Sign Up
+            </button>
+          </div>
+
+          <!-- Login Form -->
+          <form id="login-form" class="flex flex-col gap-6">
+            <div>
+              <label for="login-email" class="block text-sm font-medium mb-2"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                id="login-email"
+                name="email"
+                class="w-full px-4 py-3 card-glass rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="login-password" class="block text-sm font-medium mb-2"
+                >Password</label
+              >
+              <div class="relative">
+                <input
+                  type="password"
+                  id="login-password"
+                  name="password"
+                  class="w-full px-4 py-3 card-glass rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 pr-12"
+                  placeholder="Enter your password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                  onclick="togglePassword('login-password')"
+                >
+                  👁️
+                </button>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="remember-me"
+                  name="remember-me"
+                  class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                />
+                <label for="remember-me" class="text-sm opacity-80"
+                  >Remember me</label
+                >
+              </div>
+              <a
+                href="#"
+                class="text-sm text-blue-600 hover:text-blue-800 transition-colors"
+                >Forgot password?</a
+              >
+            </div>
+
+            <button
+              type="submit"
+              class="w-full px-6 py-3 text-white gradient-bg rounded-lg font-medium hover:scale-105 transition-transform shadow-lg"
+            >
+              Sign In
+            </button>
+          </form>
+
+          <!-- Sign Up Form -->
+          <form id="signup-form" class="flex flex-col gap-6 hidden">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label
+                  for="signup-firstname"
+                  class="block text-sm font-medium mb-2"
+                  >First Name</label
+                >
+                <input
+                  type="text"
+                  id="signup-firstname"
+                  name="firstname"
+                  class="w-full px-4 py-3 card-glass rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                  placeholder="First name"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="signup-lastname"
+                  class="block text-sm font-medium mb-2"
+                  >Last Name</label
+                >
+                <input
+                  type="text"
+                  id="signup-lastname"
+                  name="lastname"
+                  class="w-full px-4 py-3 card-glass rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                  placeholder="Last name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="signup-email" class="block text-sm font-medium mb-2"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                id="signup-email"
+                name="email"
+                class="w-full px-4 py-3 card-glass rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div>
+              <label
+                for="signup-password"
+                class="block text-sm font-medium mb-2"
+                >Password</label
+              >
+              <div class="relative">
+                <input
+                  type="password"
+                  id="signup-password"
+                  name="password"
+                  class="w-full px-4 py-3 card-glass rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 pr-12"
+                  placeholder="Create a password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                  onclick="togglePassword('signup-password')"
+                >
+                  👁️
+                </button>
+              </div>
+              <p class="text-xs opacity-60 mt-1">
+                Must be at least 8 characters with uppercase, lowercase, and
+                number
+              </p>
+            </div>
+
+            <div>
+              <label
+                for="signup-confirm-password"
+                class="block text-sm font-medium mb-2"
+                >Confirm Password</label
+              >
+              <div class="relative">
+                <input
+                  type="password"
+                  id="signup-confirm-password"
+                  name="confirm-password"
+                  class="w-full px-4 py-3 card-glass rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 pr-12"
+                  placeholder="Confirm your password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                  onclick="togglePassword('signup-confirm-password')"
+                >
+                  👁️
+                </button>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+                class="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                required
+              />
+              <label for="terms" class="text-sm opacity-80">
+                I agree to the
+                <a href="#" class="text-blue-600 hover:text-blue-800"
+                  >Terms of Service</a
+                >
+                and
+                <a href="#" class="text-blue-600 hover:text-blue-800"
+                  >Privacy Policy</a
+                >
+              </label>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <input
+                type="checkbox"
+                id="newsletter"
+                name="newsletter"
+                class="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+              />
+              <label for="newsletter" class="text-sm opacity-80">
+                I'd like to receive trading insights and platform updates
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full px-6 py-3 text-white gradient-bg rounded-lg font-medium hover:scale-105 transition-transform shadow-lg"
+            >
+              Create Account
+            </button>
+          </form>
+
+          <!-- Divider -->
+          <div class="my-8 flex items-center">
+            <div
+              class="flex-1 border-t border-gray-300 dark:border-gray-600"
+            ></div>
+            <span class="px-4 text-sm opacity-60">or continue with</span>
+            <div
+              class="flex-1 border-t border-gray-300 dark:border-gray-600"
+            ></div>
+          </div>
+
+          <!-- Social Login -->
+          <div class="flex flex-col gap-3">
+            <button
+              class="w-full px-6 py-3 card-glass rounded-lg font-medium hover:scale-105 transition-transform flex items-center justify-center gap-3"
+            >
+              <span>🔍</span>
+              Continue with Google
+            </button>
+            <button
+              class="w-full px-6 py-3 card-glass rounded-lg font-medium hover:scale-105 transition-transform flex items-center justify-center gap-3"
+            >
+              <span>📘</span>
+              Continue with Facebook
+            </button>
+          </div>
+
+          <!-- Success Message -->
+          <div
+            id="success-message"
+            class="hidden mt-6 p-4 bg-green-100 dark:bg-green-900 border border-green-400 text-green-700 dark:text-green-300 rounded-lg"
+          >
+            <p class="text-center">
+              Account created successfully! Redirecting to dashboard...
+            </p>
+          </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="text-center mt-6">
+          <a
+            href="./"
+            class="text-sm opacity-80 hover:opacity-100 transition-opacity"
+          >
+            ← Back to Home
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>TradePro</h3>
+          <ul>
+            <li><a href="about">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Trading</h3>
+          <ul>
+            <li><a href="#">Stocks</a></li>
+            <li><a href="#">Crypto</a></li>
+            <li><a href="#">Forex</a></li>
+            <li><a href="#">Commodities</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Market Analysis</a></li>
+            <li><a href="#">Trading Guides</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">System Status</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 TradePro. All rights reserved. | Terms of Service |
+          Privacy Policy
+        </p>
+      </div>
+    </footer>
+
+    <script src="./src/main.ts"></script>
+    <script lang="js">
+      // Tab switching functionality
+      function switchTab(tab) {
+        const loginTab = document.getElementById("login-tab");
+        const signupTab = document.getElementById("signup-tab");
+        const loginForm = document.getElementById("login-form");
+        const signupForm = document.getElementById("signup-form");
+        const title = document.querySelector("h1");
+        const subtitle = document.querySelector("p");
+
+        if (tab === "login") {
+          loginTab.classList.add("tab-active");
+          signupTab.classList.remove("tab-active");
+          loginForm.classList.remove("hidden");
+          signupForm.classList.add("hidden");
+          title.textContent = "Welcome Back";
+          subtitle.textContent = "Access your trading dashboard";
+        } else {
+          signupTab.classList.add("tab-active");
+          loginTab.classList.remove("tab-active");
+          signupForm.classList.remove("hidden");
+          loginForm.classList.add("hidden");
+          title.textContent = "Create Account";
+          subtitle.textContent = "Start your trading journey today";
+        }
+      }
+
+      // On page load, select tab from query string if present
+      document.addEventListener('DOMContentLoaded', function () {
+        const params = new URLSearchParams(window.location.search);
+        const tab = params.get('tab');
+        if (tab === 'signup' || tab === 'login') {
+          switchTab(tab);
+        } else {
+          switchTab('login');
+        }
+      });
+
+      // Password visibility toggle
+      function togglePassword(inputId) {
+        const input = document.getElementById(inputId);
+        if (input.type === "password") {
+          input.type = "text";
+        } else {
+          input.type = "password";
+        }
+      }
+
+      // Form submission handling
+      const loginForm = document.getElementById("login-form");
+      const signupForm = document.getElementById("signup-form");
+      const successMessage = document.getElementById("success-message");
+
+      if (loginForm) {
+        loginForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(this);
+          const data = Object.fromEntries(formData);
+
+          // Show loading state
+          const submitBtn = this.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = "Signing In...";
+          submitBtn.disabled = true;
+
+          // Simulate API call
+          setTimeout(() => {
+            alert("Login successful! Redirecting to dashboard...");
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            this.reset();
+          }, 1500);
+        });
+      }
+
+      if (signupForm) {
+        signupForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(this);
+          const data = Object.fromEntries(formData);
+
+          // Validate password match
+          const password = data.password;
+          const confirmPassword = data["confirm-password"];
+
+          if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+          }
+
+          // Validate password strength
+          const passwordRegex =
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{8,}$/;
+          if (!passwordRegex.test(password)) {
+            alert(
+              "Password must be at least 8 characters with uppercase, lowercase, and number"
+            );
+            return;
+          }
+
+          // Show loading state
+          const submitBtn = this.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = "Creating Account...";
+          submitBtn.disabled = true;
+
+          // Simulate API call
+          setTimeout(() => {
+            successMessage.classList.remove("hidden");
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+
+            // Reset form
+            this.reset();
+
+            // Redirect after 2 seconds
+            setTimeout(() => {
+              window.location.href = "./";
+            }, 2000);
+          }, 1500);
+        });
+      }
+    </script>
+
+    <style>
+      .tab-active {
+        background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+        color: white;
+        box-shadow: 0 2px 8px rgba(14, 165, 233, 0.2);
+      }
+    </style>
+  </body>
+</html>

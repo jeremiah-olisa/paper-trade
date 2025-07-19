@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - TradePro Paper Trading Platform</title>
+
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <a href="./" class="logo">TradePro</a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="markets">Markets</a></li>
+          <li><a href="trading">Trading</a></li>
+          <li><a href="portfolio">Portfolio</a></li>
+          <li><a href="education">Education</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="contact" class="active">Contact</a></li>
+        </ul>
+        <div class="nav-actions items-center-safe">
+          <!-- Theme Toggle -->
+          <label class="theme-toggle">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="theme-slider"></span>
+          </label>
+
+          <a href="auth" class="btn btn-secondary">Sign In</a>
+          <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="pt-16 min-h-screen flex items-center relative overflow-hidden"
+    >
+      <div class="absolute inset-0 hero-gradient"></div>
+      <div class="relative z-10 max-w-6xl mx-auto px-6 pt-12">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+            Get in Touch
+          </h1>
+          <p class="text-xl mb-8 opacity-80 leading-relaxed max-w-3xl mx-auto">
+            Have questions about our platform? We're here to help. Reach out to
+            our team for support, feedback, or partnership opportunities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16">
+          <!-- Contact Form -->
+          <div class="animate-fade-in">
+            <h2 class="text-3xl font-bold mb-8">Send us a Message</h2>
+            <form class="flex flex-col gap-y-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label for="firstName" class="block text-sm font-medium mb-2"
+                    >First Name</label
+                  >
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    class="w-full px-4 py-3 card-glass rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                    placeholder="Enter your first name"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="lastName" class="block text-sm font-medium mb-2"
+                    >Last Name</label
+                  >
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    class="w-full px-4 py-3 card-glass rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                    placeholder="Enter your last name"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="email" class="block text-sm font-medium mb-2"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="w-full px-4 py-3 card-glass rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                  placeholder="Enter your email address"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="subject" class="block text-sm font-medium mb-2"
+                  >Subject</label
+                >
+                <select
+                  id="subject"
+                  name="subject"
+                  class="w-full px-4 py-3 card-glass rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                  required
+                >
+                  <option value="">Select a subject</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="support">Technical Support</option>
+                  <option value="billing">Billing Question</option>
+                  <option value="partnership">Partnership Opportunity</option>
+                  <option value="feedback">Platform Feedback</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message" class="block text-sm font-medium mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  class="w-full px-4 py-3 card-glass rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 resize-none"
+                  placeholder="Tell us how we can help you..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="newsletter"
+                  name="newsletter"
+                  class="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                />
+                <label for="newsletter" class="text-sm opacity-80">
+                  I'd like to receive updates about new features and trading
+                  insights
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full px-8 py-4 text-white gradient-bg rounded-lg font-medium hover:scale-105 transition-transform shadow-lg"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="animate-fade-in">
+            <h2 class="text-3xl font-bold mb-8">Contact Information</h2>
+
+            <div class="flex flex-col gap-y-8">
+              <!-- General Contact -->
+              <div class="card-glass rounded-xl p-6">
+                <h3 class="text-xl font-semibold mb-4">General Inquiries</h3>
+                <div class="flex flex-col gap-y-3">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-8 h-8 gradient-bg rounded-full flex items-center justify-center text-sm"
+                    >
+                      📧
+                    </div>
+                    <div>
+                      <p class="font-medium">Email</p>
+                      <p class="text-sm opacity-80">support@tradepro.com</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-8 h-8 gradient-bg rounded-full flex items-center justify-center text-sm"
+                    >
+                      📞
+                    </div>
+                    <div>
+                      <p class="font-medium">Phone</p>
+                      <p class="text-sm opacity-80">+1 (555) 123-4567</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-8 h-8 gradient-bg rounded-full flex items-center justify-center text-sm"
+                    >
+                      🕒
+                    </div>
+                    <div>
+                      <p class="font-medium">Support Hours</p>
+                      <p class="text-sm opacity-80">24/7 Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Office Address -->
+              <div class="card-glass rounded-xl p-6">
+                <h3 class="text-xl font-semibold mb-4">Office Address</h3>
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-8 h-8 gradient-bg rounded-full flex items-center justify-center text-sm"
+                  >
+                    🏢
+                  </div>
+                  <div>
+                    <p class="font-medium">TradePro Headquarters</p>
+                    <p class="text-sm opacity-80">
+                      123 Trading Street<br />
+                      Financial District<br />
+                      New York, NY 10001<br />
+                      United States
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Media -->
+              <div class="card-glass rounded-xl p-6">
+                <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                <div class="grid grid-cols-2 gap-4">
+                  <a
+                    href="#"
+                    class="flex items-center gap-3 p-3 card-glass rounded-lg hover:scale-105 transition-transform"
+                  >
+                    <div
+                      class="w-8 h-8 gradient-bg rounded-full flex items-center justify-center text-sm"
+                    >
+                      🐦
+                    </div>
+                    <span class="font-medium">Twitter</span>
+                  </a>
+                  <a
+                    href="#"
+                    class="flex items-center gap-3 p-3 card-glass rounded-lg hover:scale-105 transition-transform"
+                  >
+                    <div
+                      class="w-8 h-8 gradient-bg rounded-full flex items-center justify-center text-sm"
+                    >
+                      💼
+                    </div>
+                    <span class="font-medium">LinkedIn</span>
+                  </a>
+                  <a
+                    href="#"
+                    class="flex items-center gap-3 p-3 card-glass rounded-lg hover:scale-105 transition-transform"
+                  >
+                    <div
+                      class="w-8 h-8 gradient-bg rounded-full flex items-center justify-center text-sm"
+                    >
+                      📘
+                    </div>
+                    <span class="font-medium">Facebook</span>
+                  </a>
+                  <a
+                    href="#"
+                    class="flex items-center gap-3 p-3 card-glass rounded-lg hover:scale-105 transition-transform"
+                  >
+                    <div
+                      class="w-8 h-8 gradient-bg rounded-full flex items-center justify-center text-sm"
+                    >
+                      📷
+                    </div>
+                    <span class="font-medium">Instagram</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section
+      class="py-20 bg-opacity-50"
+      style="background-color: var(--bg-secondary)"
+    >
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          Frequently Asked Questions
+        </h2>
+        <div class="flex flex-col gap-y-6">
+          <div class="card-glass rounded-xl p-6 animate-fade-in">
+            <h3 class="text-lg font-semibold mb-3">
+              How do I get started with paper trading?
+            </h3>
+            <p class="opacity-80 leading-relaxed">
+              Simply create a free account and you'll receive $100,000 in
+              virtual funds to start practicing. No real money is required, and
+              you can begin trading immediately.
+            </p>
+          </div>
+
+          <div class="card-glass rounded-xl p-6 animate-fade-in">
+            <h3 class="text-lg font-semibold mb-3">
+              Is the market data real-time?
+            </h3>
+            <p class="opacity-80 leading-relaxed">
+              Yes, we provide real-time market data for stocks,
+              cryptocurrencies, and forex pairs. Our data feeds are sourced from
+              major exchanges and updated continuously.
+            </p>
+          </div>
+
+          <div class="card-glass rounded-xl p-6 animate-fade-in">
+            <h3 class="text-lg font-semibold mb-3">
+              Can I use the platform on mobile devices?
+            </h3>
+            <p class="opacity-80 leading-relaxed">
+              Absolutely! Our platform is fully responsive and works seamlessly
+              on desktop, tablet, and mobile devices. We also offer dedicated
+              mobile apps for iOS and Android.
+            </p>
+          </div>
+
+          <div class="card-glass rounded-xl p-6 animate-fade-in">
+            <h3 class="text-lg font-semibold mb-3">
+              What educational resources are available?
+            </h3>
+            <p class="opacity-80 leading-relaxed">
+              We offer comprehensive educational content including video
+              tutorials, trading guides, webinars, and a knowledge base. All
+              resources are free for registered users.
+            </p>
+          </div>
+
+          <div class="card-glass rounded-xl p-6 animate-fade-in">
+            <h3 class="text-lg font-semibold mb-3">
+              How secure is my account information?
+            </h3>
+            <p class="opacity-80 leading-relaxed">
+              We implement bank-level security measures including SSL
+              encryption, two-factor authentication, and regular security
+              audits. Your data is protected with the highest industry
+              standards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>TradePro</h3>
+          <ul>
+            <li><a href="about">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Trading</h3>
+          <ul>
+            <li><a href="#">Stocks</a></li>
+            <li><a href="#">Crypto</a></li>
+            <li><a href="#">Forex</a></li>
+            <li><a href="#">Commodities</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Market Analysis</a></li>
+            <li><a href="#">Trading Guides</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">System Status</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 TradePro. All rights reserved. | Terms of Service |
+          Privacy Policy
+        </p>
+      </div>
+    </footer>
+
+    <script src="./src/main.ts"></script>
+    <script lang="ts">
+      // Form submission handling
+      const contactForm = document.querySelector("form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(this);
+          const data = Object.fromEntries(formData);
+
+          // Show success message (in a real app, this would send to server)
+          alert(
+            "Thank you for your message! We'll get back to you within 24 hours."
+          );
+
+          // Reset form
+          this.reset();
+        });
+      }
+    </script>
+  </body>
+</html>

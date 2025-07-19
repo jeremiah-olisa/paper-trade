@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | TradePro</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <a href="/" class="logo">TradePro</a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="markets">Markets</a></li>
+          <li><a href="trading">Trading</a></li>
+          <li><a href="portfolio" class="active">Portfolio</a></li>
+          <li><a href="education">Education</a></li>
+          <li><a href="about">About</a></li>
+        </ul>
+        <div class="nav-actions items-center-safe">
+          <label class="theme-toggle">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="theme-slider"></span>
+          </label>
+          <a href="auth" class="btn btn-secondary">Sign In</a>
+          <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Portfolio Hero Section -->
+    <section class="pt-16 min-h-[40vh] flex items-center relative overflow-hidden">
+      <div class="absolute inset-0 hero-gradient"></div>
+      <div class="relative z-10 max-w-6xl mx-auto px-6 pt-12 w-full">
+        <div class="text-center animate-fade-in">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">My Portfolio</h1>
+          <p class="text-xl mb-8 opacity-80 leading-relaxed max-w-3xl mx-auto">
+            Track your simulated holdings, performance, and profit/loss in one place.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Summary & Graph -->
+    <section class="py-12 bg-opacity-50" style="background-color: var(--bg-secondary)">
+      <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Summary Card -->
+        <div class="card-glass p-8 flex flex-col justify-center items-center animate-fade-in">
+          <div class="text-lg font-semibold mb-2">Total Balance</div>
+          <div class="text-3xl font-bold mb-4 gradient-text">$52,340.12</div>
+          <div class="flex gap-4">
+            <div class="text-sm opacity-80">Unrealized P/L:</div>
+            <div class="text-lg font-semibold positive">+$2,340.12</div>
+          </div>
+        </div>
+        <!-- Performance Graph Placeholder -->
+        <div class="md:col-span-2 card-glass p-8 flex flex-col items-center justify-center animate-fade-in min-h-[220px]">
+          <div class="text-lg font-semibold mb-4">Portfolio Performance</div>
+          <div class="w-full h-40 flex items-center justify-center opacity-60">
+            <span>[Performance Graph Placeholder]</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Holdings Table -->
+    <section class="py-12">
+      <div class="max-w-6xl mx-auto px-6 animate-fade-in">
+        <div class="card-glass p-6 overflow-x-auto">
+          <div class="text-xl font-bold mb-6">Holdings</div>
+          <table class="min-w-full text-left">
+            <thead>
+              <tr>
+                <th class="py-3 px-6">Asset</th>
+                <th class="py-3 px-6">Quantity</th>
+                <th class="py-3 px-6">Value</th>
+                <th class="py-3 px-6">P/L</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="py-3 px-6 font-semibold flex items-center gap-2">
+                  <span class="text-lg">₿</span> BTC
+                </td>
+                <td class="py-3 px-6">0.75</td>
+                <td class="py-3 px-6">$35,000.00</td>
+                <td class="py-3 px-6 positive font-semibold">+$1,200.00</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-6 font-semibold flex items-center gap-2">
+                  <span class="text-lg">Ξ</span> ETH
+                </td>
+                <td class="py-3 px-6">10.5</td>
+                <td class="py-3 px-6">$15,750.00</td>
+                <td class="py-3 px-6 positive font-semibold">+$900.00</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-6 font-semibold flex items-center gap-2">
+                  <span class="text-lg">$</span> USDT
+                </td>
+                <td class="py-3 px-6">1,200</td>
+                <td class="py-3 px-6">$1,200.00</td>
+                <td class="py-3 px-6 negative font-semibold">-$50.00</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-6 font-semibold flex items-center gap-2">
+                  <span class="text-lg">🪙</span> SOL
+                </td>
+                <td class="py-3 px-6">50</td>
+                <td class="py-3 px-6">$390.12</td>
+                <td class="py-3 px-6 positive font-semibold">+$290.12</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>TradePro</h3>
+          <ul>
+            <li><a href="about">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Trading</h3>
+          <ul>
+            <li><a href="#">Stocks</a></li>
+            <li><a href="#">Crypto</a></li>
+            <li><a href="#">Forex</a></li>
+            <li><a href="#">Commodities</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Market Analysis</a></li>
+            <li><a href="#">Trading Guides</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">System Status</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 TradePro. All rights reserved. | Terms of Service |
+          Privacy Policy
+        </p>
+      </div>
+    </footer>
+    <script src="./src/main.ts"></script>
+  </body>
+</html> 

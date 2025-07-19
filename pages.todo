@@ -1,0 +1,57 @@
+### Pages to Create
+1. **Homepage**
+   - **Purpose**: Introduces the paper trading platform, showcases its professional look, and provides navigation to other pages.
+   - **Features**:
+     - Hero section with a tagline (e.g., "Practice Trading with Confidence") and a call-to-action (e.g., "Start Trading").
+     - Mock market overview with sample price tickers (e.g., BTC/USD, ETH/USD) updated via JavaScript for a dynamic feel.
+     - Brief description of paper trading benefits.
+     - Professional visuals (charts, graphs) using placeholders or static images inspired by TradingView.
+     - Navigation bar with links to other pages.
+     - Footer with mock company info and links.
+
+2. **Markets Page**
+   - **Purpose**: Displays a list of tradable assets to mimic a broker’s market selection interface.
+   - **Features**:
+     - Grid or table of assets (e.g., cryptocurrencies, stocks, forex) with mock data (symbol, price, 24h change).
+     - Filter options (e.g., by asset type: Crypto, Stocks, Forex) with static or JavaScript-driven toggles.
+     - Simulated price updates using JavaScript intervals to mimic real-time data.
+     - Clean, tabular layout inspired by Binance’s market page.
+
+3. **Trading Interface Page**
+   - **Purpose**: Simulates the core trading experience, resembling Binance’s or TradingView’s trading view.
+   - **Features**:
+     - Mock trading chart (use a static image or a lightweight library like Chart.js with dummy data).
+     - Order panel with buy/sell buttons (non-functional, styled like Binance).
+     - Price ticker and volume stats (static or JavaScript-animated).
+     - Asset selector dropdown (e.g., BTC/USD, ETH/USD).
+     - Timeframe toggles (e.g., 1H, 1D, 1W) with static visuals.
+
+4. **Portfolio Page**
+   - **Purpose**: Shows a user’s simulated portfolio to give the feel of tracking paper trades.
+   - **Features**:
+     - Table of mock holdings (asset, quantity, value, profit/loss).
+     - Summary stats (e.g., total balance, unrealized P/L) with static numbers.
+     - Clean, card-based or tabular design inspired by broker dashboards.
+     - Placeholder for portfolio performance graph.
+
+5. **Login/Sign-Up Page**
+   - **Purpose**: Provides a professional entry point for users, mimicking broker authentication pages.
+   - **Features**:
+     - Login form (email, password) with a modern, secure look.
+     - Sign-up form (name, email, password) with basic validation styling.
+     - “Forgot Password” link (non-functional).
+     - Clean, centered layout with subtle animations (e.g., fade-in on load).
+
+6. **About Page**
+   - **Purpose**: Builds credibility for investors by describing the platform’s purpose.
+   - **Features**:
+     - Overview of the paper trading platform’s mission (e.g., risk-free trading practice).
+     - Mock team section with placeholder bios or images.
+     - Professional design with a focus on trust and reliability.
+
+7. **Contact Page**
+   - **Purpose**: Allows investors to reach out, aligning with the client’s request for a contact form.
+   - **Features**:
+     - Contact form (name, email, message) styled like Binance’s support page.
+     - Static contact info (e.g., email, social media links).
+     - Simple, clean layout with a professional aesthetic.

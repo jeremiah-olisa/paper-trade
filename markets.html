@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markets | TradePro</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <a href="./" class="logo">TradePro</a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="markets" class="active">Markets</a></li>
+          <li><a href="trading">Trading</a></li>
+          <li><a href="portfolio">Portfolio</a></li>
+          <li><a href="education">Education</a></li>
+          <li><a href="about">About</a></li>
+        </ul>
+        <div class="nav-actions items-center-safe">
+          <!-- Theme Toggle -->
+          <label class="theme-toggle">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="theme-slider"></span>
+          </label>
+          <a href="auth" class="btn btn-secondary">Sign In</a>
+          <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-16 min-h-[60vh] flex items-center relative overflow-hidden">
+      <div class="absolute inset-0 hero-gradient"></div>
+      <div class="relative z-10 max-w-6xl mx-auto px-6 w-full">
+        <div class="text-center animate-fade-in">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Markets</h1>
+          <p class="text-xl mb-8 opacity-80 leading-relaxed max-w-3xl mx-auto">
+            Explore a wide range of tradable assets. Filter by asset type and watch prices update in real time.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Markets Table Section -->
+    <section class="py-20 bg-opacity-50" style="background-color: var(--bg-secondary)">
+      <div class="max-w-6xl mx-auto px-6">
+        <!-- Filter Tabs -->
+        <div class="flex justify-center mb-8 animate-fade-in">
+          <div id="market-filters" class="flex gap-2 card-glass p-2 rounded-lg">
+            <button class="tab-btn active" data-type="all">All</button>
+            <button class="tab-btn" data-type="crypto">Crypto</button>
+            <button class="tab-btn" data-type="stocks">Stocks</button>
+            <button class="tab-btn" data-type="forex">Forex</button>
+          </div>
+        </div>
+        <!-- Markets Table -->
+        <div class="overflow-x-auto rounded-lg animate-fade-in">
+          <table class="min-w-full card-glass rounded-xl text-left">
+            <thead>
+              <tr>
+                <th class="py-4 px-6">Symbol</th>
+                <th class="py-4 px-6">Name</th>
+                <th class="py-4 px-6">Type</th>
+                <th class="py-4 px-6">Price</th>
+                <th class="py-4 px-6">24h Change</th>
+              </tr>
+            </thead>
+            <tbody id="markets-table-body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+      <div class="max-w-4xl mx-auto px-6 text-center animate-fade-in">
+        <h2 class="text-3xl font-bold mb-6">Ready to Start Trading?</h2>
+        <p class="text-lg mb-8 opacity-80 leading-relaxed">
+          Join thousands of traders building their skills and confidence with TradePro.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="auth" class="px-8 py-4 text-white gradient-bg rounded-lg font-medium hover:scale-105 transition-transform shadow-lg">
+            Create Free Account
+          </a>
+          <a href="about" class="px-8 py-4 card-glass rounded-lg font-medium hover:scale-105 transition-transform">
+            Learn More
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer (match about) -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>TradePro</h3>
+          <ul>
+            <li><a href="about">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Trading</h3>
+          <ul>
+            <li><a href="#">Stocks</a></li>
+            <li><a href="#">Crypto</a></li>
+            <li><a href="#">Forex</a></li>
+            <li><a href="#">Commodities</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Market Analysis</a></li>
+            <li><a href="#">Trading Guides</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">System Status</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 TradePro. All rights reserved. | Terms of Service |
+          Privacy Policy
+        </p>
+      </div>
+    </footer>
+
+    <script src="./src/main.ts"></script>
+    <script>
+      // Mock asset data
+      const assets = [
+        { symbol: 'BTC/USD', name: 'Bitcoin', type: 'crypto', price: 45234.56, change: 2.34 },
+        { symbol: 'ETH/USD', name: 'Ethereum', type: 'crypto', price: 2456.78, change: 3.45 },
+        { symbol: 'AAPL', name: 'Apple Inc.', type: 'stocks', price: 178.45, change: 1.23 },
+        { symbol: 'TSLA', name: 'Tesla Inc.', type: 'stocks', price: 242.18, change: -0.87 },
+        { symbol: 'GOOGL', name: 'Alphabet Inc.', type: 'stocks', price: 2789.32, change: 2.10 },
+        { symbol: 'NVDA', name: 'NVIDIA Corp.', type: 'stocks', price: 478.23, change: -1.45 },
+        { symbol: 'EUR/USD', name: 'Euro / US Dollar', type: 'forex', price: 1.0854, change: 0.12 },
+        { symbol: 'USD/JPY', name: 'US Dollar / Japanese Yen', type: 'forex', price: 151.23, change: -0.09 },
+        { symbol: 'GBP/USD', name: 'British Pound / US Dollar', type: 'forex', price: 1.2645, change: 0.05 },
+      ];
+
+      let currentFilter = 'all';
+
+      function renderTable() {
+        const tbody = document.getElementById('markets-table-body');
+        tbody.innerHTML = '';
+        assets.filter(asset => currentFilter === 'all' || asset.type === currentFilter)
+          .forEach(asset => {
+            const changeClass = asset.change >= 0 ? 'positive' : 'negative';
+            const changeIcon = asset.change >= 0 ? '▲' : '▼';
+            tbody.innerHTML += `
+              <tr class="hover:bg-[rgba(14,165,233,0.05)] transition">
+                <td class="py-3 px-6 font-semibold">${asset.symbol}</td>
+                <td class="py-3 px-6 opacity-80">${asset.name}</td>
+                <td class="py-3 px-6 capitalize">${asset.type}</td>
+                <td class="py-3 px-6 font-mono">$${asset.price.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                <td class="py-3 px-6 font-semibold ${changeClass}">
+                  <span>${changeIcon}</span>
+                  <span>${asset.change > 0 ? '+' : ''}${asset.change.toFixed(2)}%</span>
+                </td>
+              </tr>
+            `;
+          });
+      }
+
+      // Filter tab logic
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.dataset.type;
+          renderTable();
+        });
+      });
+
+      // Simulate price updates
+      setInterval(() => {
+        assets.forEach(asset => {
+          // Simulate random price and change
+          const volatility = asset.type === 'crypto' ? 0.02 : asset.type === 'forex' ? 0.001 : 0.005;
+          const change = (Math.random() - 0.5) * volatility * asset.price;
+          asset.price = +(asset.price + change).toFixed(asset.type === 'forex' ? 4 : 2);
+          asset.change = +(Math.random() * 4 - 2).toFixed(2); // -2% to +2%
+        });
+        renderTable();
+      }, 3000);
+
+      // Initial render
+      renderTable();
+    </script>
+  </body>
+</html> 
