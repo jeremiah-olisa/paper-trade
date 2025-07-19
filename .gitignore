@@ -25,6 +25,3 @@ dist-ssr
 
 pnpm-lock.yaml
 package-lock.json
-
-requirements.txt
-design-system.json
