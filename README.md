@@ -45,6 +45,31 @@ A modern, multi-page paper trading simulation platform built with HTML, CSS (Tai
    pnpm preview
    ```
 
+## Deploying to Shared Hosting
+
+1. **Build the site for production:**
+   ```sh
+   npm run build
+   # or
+   yarn build
+   # or
+   pnpm build
+   ```
+   This will generate a `dist/` folder with all the static files.
+
+2. **Upload to your shared hosting:**
+   - Use your hosting provider's file manager or an FTP client (like FileZilla).
+   - Copy all the contents of the `dist/` folder (not the folder itself, just its contents) into your hosting's `public_html` or `www` directory (or the root directory for your domain).
+   - Make sure `index.html` is at the root of your public directory.
+
+3. **Access your site:**
+   - Visit your domain in a browser. Your site should load instantly!
+
+**Notes:**
+- No server-side code is required; this is a static site.
+- If you use subfolders for your pages, make sure your links are relative or update them as needed for your hosting environment.
+- If you use a custom domain, point it to your shared hosting as per your provider's instructions.
+
 ## Project Structure
 
 - `index.html` — Home page, hero, market overview, features.
