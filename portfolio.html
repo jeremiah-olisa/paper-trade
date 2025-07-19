@@ -99,8 +99,8 @@
           class="md:col-span-2 card-glass p-8 flex flex-col items-center justify-center animate-fade-in min-h-[220px]"
         >
           <div class="text-lg font-semibold mb-4">Portfolio Performance</div>
-          <div class="w-full h-40 flex items-center justify-center opacity-60">
-            <span>[Performance Graph Placeholder]</span>
+          <div class="w-full h-40 flex items-center justify-center">
+            <canvas id="portfolioChart" class="w-full h-full"></canvas>
           </div>
         </div>
       </div>
@@ -207,5 +207,39 @@
       </div>
     </footer>
     <script src="./src/main.ts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+      // Portfolio performance chart
+      const ctx = document.getElementById('portfolioChart').getContext('2d');
+      const textColor = getComputedStyle(document.body).getPropertyValue('--text-secondary').trim() || '#868b93';
+      const accentColor = getComputedStyle(document.body).getPropertyValue('--accent-primary').trim() || '#0ea5e9';
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          datasets: [{
+            label: 'Portfolio Value',
+            data: [50000, 50500, 51000, 52000, 51500, 52500, 52340],
+            borderColor: accentColor,
+            backgroundColor: 'rgba(14,165,233,0.1)',
+            tension: 0.4,
+            pointRadius: 3,
+            fill: true,
+          }]
+        },
+        options: {
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { ticks: { color: textColor } },
+            y: {
+              ticks: { color: textColor },
+              grid: { color: 'rgba(100,100,100,0.08)' }
+            }
+          },
+          responsive: true,
+          maintainAspectRatio: false,
+        }
+      });
+    </script>
   </body>
 </html>
