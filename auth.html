@@ -11,8 +11,17 @@
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-content">
-        <a href="./" class="logo">TradePro</a>
+        <a href="#" class="logo">TradePro</a>
         <ul class="nav-links">
+          <li><a href="./">Home</a></li>
+          <li><a href="./markets">Markets</a></li>
+          <li><a href="./trading">Trading</a></li>
+          <li><a href="./portfolio">Portfolio</a></li>
+          <li><a href="./education">Education</a></li>
+          <li><a href="./about">About</a></li>
+        </ul>
+
+        <ul class="mobile-nav">
           <li><a href="/">Home</a></li>
           <li><a href="markets">Markets</a></li>
           <li><a href="trading">Trading</a></li>
@@ -20,16 +29,33 @@
           <li><a href="education">Education</a></li>
           <li><a href="about">About</a></li>
           <li><a href="contact">Contact</a></li>
+          <li><a href="auth" class="btn btn-secondary">Sign In</a></li>
+          <li>
+            <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+          </li>
         </ul>
-        <div class="nav-actions items-center-safe">
-          <!-- Theme Toggle -->
-          <label class="theme-toggle">
-            <input type="checkbox" id="theme-toggle" />
-            <span class="theme-slider"></span>
-          </label>
+        <div class="flex items-center gap-4">
+          <div class="nav-actions items-center-safe">
+            <!-- Theme Toggle -->
+            <label class="theme-toggle">
+              <input type="checkbox" id="theme-toggle" />
+              <span class="theme-slider"></span>
+            </label>
 
-          <a href="auth" class="btn btn-secondary">Sign In</a>
-          <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+            <a href="auth" class="hide-mobile btn btn-secondary">Sign In</a>
+            <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+          </div>
+          <div
+            class="hamburger"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            tabindex="0"
+            role="button"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </nav>

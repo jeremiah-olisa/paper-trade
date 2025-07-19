@@ -11,22 +11,51 @@
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-content">
-        <a href="./" class="logo">TradePro</a>
+        <a href="#" class="logo">TradePro</a>
         <ul class="nav-links">
+          <li><a href="./">Home</a></li>
+          <li><a href="./markets">Markets</a></li>
+          <li><a href="./trading">Trading</a></li>
+          <li><a href="./portfolio">Portfolio</a></li>
+          <li><a href="./education">Education</a></li>
+          <li><a href="./about">About</a></li>
+        </ul>
+
+        <ul class="mobile-nav">
           <li><a href="/">Home</a></li>
           <li><a href="markets">Markets</a></li>
-          <li><a href="trading" class="active">Trading</a></li>
+          <li><a href="trading">Trading</a></li>
           <li><a href="portfolio">Portfolio</a></li>
           <li><a href="education">Education</a></li>
           <li><a href="about">About</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li><a href="auth" class="btn btn-secondary">Sign In</a></li>
+          <li>
+            <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+          </li>
         </ul>
-        <div class="nav-actions items-center-safe">
-          <label class="theme-toggle">
-            <input type="checkbox" id="theme-toggle" />
-            <span class="theme-slider"></span>
-          </label>
-          <a href="auth" class="btn btn-secondary">Sign In</a>
-          <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+        <div class="flex items-center gap-4">
+          <div class="nav-actions items-center-safe">
+            <!-- Theme Toggle -->
+            <label class="theme-toggle">
+              <input type="checkbox" id="theme-toggle" />
+              <span class="theme-slider"></span>
+            </label>
+
+            <a href="auth" class="hide-mobile btn btn-secondary">Sign In</a>
+            <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+          </div>
+          <div
+            class="hamburger"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            tabindex="0"
+            role="button"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </nav>
@@ -95,7 +124,7 @@
                 placeholder="Enter amount"
                 min="0"
                 step="0.0001"
-                style="backdrop-filter: blur(12px);"
+                style="backdrop-filter: blur(12px)"
               />
             </div>
             <div class="flex justify-between text-sm opacity-70">
@@ -179,7 +208,10 @@
       let chart;
       function renderChart(timeframe = "1h") {
         // Get the current theme text color from CSS variable
-        const textColor = getComputedStyle(document.body).getPropertyValue('--text-secondary').trim() || '#868b93';
+        const textColor =
+          getComputedStyle(document.body)
+            .getPropertyValue("--text-secondary")
+            .trim() || "#868b93";
         const dataSets = {
           "1h": [118000, 118200, 118100, 118300, 118250, 118072],
           "1d": [117000, 117500, 118000, 118200, 118072, 118100],
@@ -217,7 +249,7 @@
           },
         });
       }
-      
+
       renderChart();
       document.querySelectorAll("[data-timeframe]").forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -230,9 +262,9 @@
       });
 
       // Re-render chart on theme change
-      document.addEventListener('theme-changed', () => {
-        const activeBtn = document.querySelector('[data-timeframe].active');
-        const tf = activeBtn ? activeBtn.getAttribute('data-timeframe') : '1h';
+      document.addEventListener("theme-changed", () => {
+        const activeBtn = document.querySelector("[data-timeframe].active");
+        const tf = activeBtn ? activeBtn.getAttribute("data-timeframe") : "1h";
         renderChart(tf);
       });
 

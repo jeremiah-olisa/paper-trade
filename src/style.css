@@ -291,7 +291,7 @@ input:checked + .theme-slider:before {
   color: var(--accent-primary);
 }
 .nav-links {
-  @apply flex gap-8 list-none;
+  @apply flex gap-8 list-none max-md:hidden;
 }
 .nav-links a {
   @apply no-underline font-medium transition-colors duration-300;

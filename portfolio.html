@@ -10,44 +10,83 @@
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-content">
-        <a href="/" class="logo">TradePro</a>
+        <a href="#" class="logo">TradePro</a>
         <ul class="nav-links">
+          <li><a href="./">Home</a></li>
+          <li><a href="./markets">Markets</a></li>
+          <li><a href="./trading">Trading</a></li>
+          <li><a href="./portfolio">Portfolio</a></li>
+          <li><a href="./education">Education</a></li>
+          <li><a href="./about">About</a></li>
+        </ul>
+
+        <ul class="mobile-nav">
           <li><a href="/">Home</a></li>
           <li><a href="markets">Markets</a></li>
           <li><a href="trading">Trading</a></li>
-          <li><a href="portfolio" class="active">Portfolio</a></li>
+          <li><a href="portfolio">Portfolio</a></li>
           <li><a href="education">Education</a></li>
           <li><a href="about">About</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li><a href="auth" class="btn btn-secondary">Sign In</a></li>
+          <li>
+            <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+          </li>
         </ul>
-        <div class="nav-actions items-center-safe">
-          <label class="theme-toggle">
-            <input type="checkbox" id="theme-toggle" />
-            <span class="theme-slider"></span>
-          </label>
-          <a href="auth" class="btn btn-secondary">Sign In</a>
-          <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+        <div class="flex items-center gap-4">
+          <div class="nav-actions items-center-safe">
+            <!-- Theme Toggle -->
+            <label class="theme-toggle">
+              <input type="checkbox" id="theme-toggle" />
+              <span class="theme-slider"></span>
+            </label>
+
+            <a href="auth" class="hide-mobile btn btn-secondary">Sign In</a>
+            <a href="auth?tab=signup" class="btn btn-primary">Get Started</a>
+          </div>
+          <div
+            class="hamburger"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            tabindex="0"
+            role="button"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </nav>
 
     <!-- Portfolio Hero Section -->
-    <section class="pt-16 min-h-[40vh] flex items-center relative overflow-hidden">
+    <section
+      class="pt-16 min-h-[40vh] flex items-center relative overflow-hidden"
+    >
       <div class="absolute inset-0 hero-gradient"></div>
       <div class="relative z-10 max-w-6xl mx-auto px-6 pt-12 w-full">
         <div class="text-center animate-fade-in">
-          <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">My Portfolio</h1>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+            My Portfolio
+          </h1>
           <p class="text-xl mb-8 opacity-80 leading-relaxed max-w-3xl mx-auto">
-            Track your simulated holdings, performance, and profit/loss in one place.
+            Track your simulated holdings, performance, and profit/loss in one
+            place.
           </p>
         </div>
       </div>
     </section>
 
     <!-- Portfolio Summary & Graph -->
-    <section class="py-12 bg-opacity-50" style="background-color: var(--bg-secondary)">
+    <section
+      class="py-12 bg-opacity-50"
+      style="background-color: var(--bg-secondary)"
+    >
       <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Summary Card -->
-        <div class="card-glass p-8 flex flex-col justify-center items-center animate-fade-in">
+        <div
+          class="card-glass p-8 flex flex-col justify-center items-center animate-fade-in"
+        >
           <div class="text-lg font-semibold mb-2">Total Balance</div>
           <div class="text-3xl font-bold mb-4 gradient-text">$52,340.12</div>
           <div class="flex gap-4">
@@ -56,7 +95,9 @@
           </div>
         </div>
         <!-- Performance Graph Placeholder -->
-        <div class="md:col-span-2 card-glass p-8 flex flex-col items-center justify-center animate-fade-in min-h-[220px]">
+        <div
+          class="md:col-span-2 card-glass p-8 flex flex-col items-center justify-center animate-fade-in min-h-[220px]"
+        >
           <div class="text-lg font-semibold mb-4">Portfolio Performance</div>
           <div class="w-full h-40 flex items-center justify-center opacity-60">
             <span>[Performance Graph Placeholder]</span>
@@ -167,4 +208,4 @@
     </footer>
     <script src="./src/main.ts"></script>
   </body>
-</html> 
+</html>
