@@ -1,13 +1,13 @@
 // Theme Management
 const themeToggle = document.getElementById(
   "theme-toggle"
-) as HTMLInputElement | null;
+);
 const body = document.body;
 
 // Check for saved theme or default to light
-const savedTheme: string = localStorage.getItem("theme") || "light";
+const savedTheme = localStorage.getItem("theme") || "light";
 
-function setTheme(theme: string): void {
+function setTheme(theme) {
   if (theme === "dark") {
     body.setAttribute("data-theme", "dark");
     if (themeToggle) themeToggle.checked = true;
@@ -23,22 +23,22 @@ setTheme(savedTheme);
 
 // Theme toggle event listener
 if (themeToggle) {
-  themeToggle.addEventListener("change", function (this: HTMLInputElement) {
-    const newTheme: string = this.checked ? "dark" : "light";
+  themeToggle.addEventListener("change", function (this) {
+    const newTheme = this.checked ? "dark" : "light";
     setTheme(newTheme);
   });
 }
 
 // Smooth scrolling for navigation
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (this: HTMLAnchorElement, e) {
+  anchor.addEventListener("click", function (this, e) {
     e.preventDefault();
     const href = this.getAttribute("href");
     if (!href) return;
     const target = document.querySelector(href);
     if (target) {
       const navHeight = 64; // Height of fixed navbar
-      const targetPosition = (target as HTMLElement).offsetTop - navHeight;
+      const targetPosition = (target).offsetTop - navHeight;
       window.scrollTo({
         top: targetPosition,
         behavior: "smooth",
@@ -67,8 +67,8 @@ document.querySelectorAll(".animate-fade-in").forEach((el) => {
 });
 
 // Navbar background on scroll
-let lastScroll = 0;
-const navbar: HTMLElement = document.querySelector("nav")!;
+var lastScroll = 0;
+const navbar = document.querySelector("nav");
 
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
@@ -83,8 +83,8 @@ window.addEventListener("scroll", () => {
 });
 
 // Responsive mobile nav toggle
-const hamburger = document.querySelector('.hamburger') as HTMLElement | null;
-const mobileNav = document.querySelector('.mobile-nav') as HTMLElement | null;
+const hamburger = document.querySelector('.hamburger');
+const mobileNav = document.querySelector('.mobile-nav');
 if (hamburger && mobileNav) {
   hamburger.addEventListener('click', () => {
     const isOpen = mobileNav.classList.toggle('open');
@@ -99,7 +99,7 @@ if (hamburger && mobileNav) {
   });
   // Optional: Close on outside click
   document.addEventListener('click', (e) => {
-    if (!mobileNav.contains(e.target as Node) && !hamburger.contains(e.target as Node)) {
+    if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
       mobileNav.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');
     }
