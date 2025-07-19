@@ -276,12 +276,10 @@ input:checked + .theme-slider:before {
 }
 
 .navbar {
-  @apply fixed top-0 left-0 right-0 h-16 z-[1000] flex items-center border-b;
+  @apply fixed top-0 left-0 right-0 h-16 z-[1000] flex items-center border-b px-6 py-4;
   background: var(--navbar-bg);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-light);
-  padding-left: 24px;
-  padding-right: 24px;
 }
 .nav-content {
   @apply flex justify-between items-center w-full max-w-screen-xl mx-auto;
@@ -456,8 +454,9 @@ input:checked + .theme-slider:before {
   border-radius: 8px;
   transition: background 0.2s;
 }
-.hamburger:focus, .hamburger:hover {
-  background: rgba(14,165,233,0.08);
+.hamburger:focus,
+.hamburger:hover {
+  background: rgba(14, 165, 233, 0.08);
 }
 .hamburger span {
   @apply block w-7 h-1 my-1 rounded transition-all duration-300;
@@ -467,7 +466,7 @@ input:checked + .theme-slider:before {
 .mobile-nav {
   @apply fixed top-0 left-0 w-full min-h-screen flex flex-col items-center pt-24 pb-8 gap-4 transition-all duration-300 z-[1050] md:hidden;
   background: var(--navbar-bg);
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
   display: none;
   border-bottom: 1px solid var(--border-light);
 }
@@ -482,7 +481,8 @@ input:checked + .theme-slider:before {
   color: var(--text-primary);
   background: transparent;
 }
-.mobile-nav a:hover, .mobile-nav a:focus {
+.mobile-nav a:hover,
+.mobile-nav a:focus {
   background: var(--card-hover-bg);
   color: var(--accent-primary);
 }
@@ -517,5 +517,9 @@ input:checked + .theme-slider:before {
 }
 
 /* Utility classes for hiding/showing */
-.hide-mobile { @apply hidden md:block; }
-.show-mobile { @apply block md:hidden; }
+.hide-mobile {
+  @apply hidden md:block;
+}
+.show-mobile {
+  @apply block md:hidden;
+}
