@@ -524,3 +524,14 @@ input:checked + .theme-slider:before {
 .show-mobile {
   @apply block md:hidden;
 }
+
+@media (max-width: 400px) {
+  .btn,
+  .btn-primary,
+  .btn-secondary {
+    @apply text-center;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    min-width: 0;
+  }
+}
