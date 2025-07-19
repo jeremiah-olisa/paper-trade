@@ -23,7 +23,7 @@ setTheme(savedTheme);
 
 // Theme toggle event listener
 if (themeToggle) {
-  themeToggle.addEventListener("change", function (this) {
+  themeToggle.addEventListener("change", function () {
     const newTheme = this.checked ? "dark" : "light";
     setTheme(newTheme);
   });
@@ -31,7 +31,7 @@ if (themeToggle) {
 
 // Smooth scrolling for navigation
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (this, e) {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
     const href = this.getAttribute("href");
     if (!href) return;
