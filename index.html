@@ -458,6 +458,8 @@
       const marketData = generateMarketData();
 
       function getChartColors() {
+        const body = document.body;
+
         const isDark =
           body.hasAttribute("data-theme") &&
           body.getAttribute("data-theme") === "dark";
