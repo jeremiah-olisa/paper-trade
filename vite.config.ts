@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   publicDir: "public",
   build: {
+    minify: false,
+    cssCodeSplit: false,
     rollupOptions: {
       input: {
         main: "index.html",
