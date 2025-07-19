@@ -276,13 +276,14 @@ input:checked + .theme-slider:before {
 }
 
 .navbar {
-  @apply fixed top-0 left-0 right-0 h-16 z-[1000] flex items-center border-b px-6 py-4;
+  @apply fixed top-0 left-0 right-0 z-[1000] flex items-center border-b px-6 py-2;
   background: var(--navbar-bg);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-light);
 }
+
 .nav-content {
-  @apply flex justify-between items-center w-full max-w-screen-xl mx-auto;
+  @apply flex flex-wrap justify-between items-center w-full max-w-screen-xl mx-auto gap-4;
 }
 .logo {
   @apply text-2xl font-bold no-underline;
