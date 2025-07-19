@@ -466,9 +466,10 @@ input:checked + .theme-slider:before {
 
 .mobile-nav {
   @apply fixed top-0 left-0 w-full min-h-screen flex flex-col items-center pt-24 pb-8 gap-4 transition-all duration-300 z-[1050] md:hidden;
-  background: rgba(30,34,45,0.98);
+  background: var(--navbar-bg);
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.2);
   display: none;
+  border-bottom: 1px solid var(--border-light);
 }
 .mobile-nav.open {
   display: flex;
@@ -491,7 +492,9 @@ input:checked + .theme-slider:before {
 
 /* Overlay for mobile nav */
 .mobile-nav-overlay {
-  @apply fixed top-0 left-0 w-full h-full z-[1040] bg-black opacity-40 transition-opacity duration-300;
+  @apply fixed top-0 left-0 w-full h-full z-[1040] transition-opacity duration-300;
+  background: var(--bg-primary);
+  opacity: 0.4;
   display: none;
 }
 .mobile-nav.open ~ .mobile-nav-overlay {
