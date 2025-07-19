@@ -573,9 +573,9 @@
       initChart();
 
       // Re-initialize chart when theme changes
-      const originalSetTheme = setTheme;
+      // const originalSetTheme = window.setTheme;
       setTheme = function (theme) {
-        originalSetTheme(theme);
+        window.setTheme(theme);
         setTimeout(() => {
           initChart();
         }, 100);
